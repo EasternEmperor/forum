@@ -14,11 +14,11 @@ public class AuthorizeController {
     @Autowired
     GithubProvider githubProvider;
 
-    @Value("github.client.id")
+    @Value("${github.client.id}")
     private String clientId;
-    @Value("github.client.secret")
+    @Value("${github.client.secret}")
     private String clientSecret;
-    @Value("github.redirect.uri")
+    @Value("${github.redirect.uri}")
     private String redirectUri;
 
 
@@ -33,7 +33,7 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String token = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser user = githubProvider.getUser(token);
-        System.out.println(user.getName());
+        System.out.println(user.getLogin());
         return "index";
     }
 }

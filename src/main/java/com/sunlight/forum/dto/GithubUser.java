@@ -2,16 +2,16 @@ package com.sunlight.forum.dto;
 
 
 public class GithubUser {
-    private String name;
+    private String login;
     private Long id;
-    private String bio;
+    private String node_id;
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public Long getId() {
@@ -22,11 +22,11 @@ public class GithubUser {
         this.id = id;
     }
 
-    public String getBio() {
-        return bio;
+    public String getNode_id() {
+        return node_id;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
+    public void setNode_id(String node_id) {
+        this.node_id = node_id;
     }
 }
