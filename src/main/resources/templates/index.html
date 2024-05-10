@@ -25,9 +25,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/login/oauth/authorize?client_id=d3f0cc4c862973e2a6b6&redirect_uri=http://localhost:8080/callback&state=1">Login</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Me<span class="caret"></span></a>
+<!--             使用thymeleaf模板引擎，判断cookie中是否有token，如果有则显示用户信息，否则显示登录按钮-->
+                <li th:if="${session.user == null}"><a href="https://github.com/login/oauth/authorize?client_id=d3f0cc4c862973e2a6b6&redirect_uri=http://localhost:8080/callback&state=1">Login</a></li>
+                <li class="dropdown" th:if="${session.user} != null">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="${session.user.getLogin()}"><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Messages</a></li>
                         <li><a href="#">Profiles</a></li>
